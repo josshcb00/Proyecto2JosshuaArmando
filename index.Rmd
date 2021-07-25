@@ -68,14 +68,27 @@ valueBox(value = nrow(orchidaceae),
 
 ### Cantidad de géneros {.value-box}
 ```{r valuebox2}
-input <- orchidaceae %>%
+vbox2 <- orchidaceae %>%
   filter(!is.na(genus) & genus != "") %>%
   group_by(genus) %>% 
   summarise(registros = n())
-valueBox(value = nrow(input), 
+valueBox(value = nrow(vbox2), 
          icon = "fas fa-fan", 
          color = "cyan")
 ```
+
+
+### Cantidad de especies {.value-box}
+```{r especies}
+vbox3 <- orchidaceae %>%
+  filter(!is.na(species) & species != "") %>%
+  group_by(species) %>% 
+  summarise(registros = n())
+valueBox(value = nrow(vbox3), 
+         icon = "fas fa-fan", 
+         color = "yellow")
+```
+
 
 Row {data-height=550}
 -----------------------------------------------------------------------
